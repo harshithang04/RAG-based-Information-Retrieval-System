@@ -1,0 +1,1813 @@
+{
+  "config": {
+    "embedding_model": "all-MiniLM-L6-v2",
+    "chunk_size": 800,
+    "chunk_overlap": 120,
+    "table_chunk_chars": 200,
+    "top_k": 5,
+    "hybrid": "dense + BM25, RRF"
+  },
+  "summary": {
+    "all": {
+      "n_questions": 46,
+      "hit@1": 0.41304347826086957,
+      "hit@3": 0.717391304347826,
+      "hit@5": 0.9130434782608695,
+      "precision@5": 0.30434782608695654,
+      "mrr": 0.5855072463768116,
+      "first_hit_chunk_type": {
+        "text": 28,
+        "table": 14,
+        "miss": 4
+      }
+    },
+    "dev": {
+      "n_questions": 14,
+      "hit@1": 0.5,
+      "hit@3": 0.7142857142857143,
+      "hit@5": 1.0,
+      "precision@5": 0.34285714285714286,
+      "mrr": 0.6595238095238095,
+      "first_hit_chunk_type": {
+        "text": 8,
+        "table": 6
+      }
+    },
+    "heldout": {
+      "n_questions": 12,
+      "hit@1": 0.5,
+      "hit@3": 0.6666666666666666,
+      "hit@5": 0.8333333333333334,
+      "precision@5": 0.3,
+      "mrr": 0.6069444444444444,
+      "first_hit_chunk_type": {
+        "miss": 2,
+        "text": 5,
+        "table": 5
+      }
+    },
+    "extra": {
+      "n_questions": 20,
+      "hit@1": 0.3,
+      "hit@3": 0.75,
+      "hit@5": 0.9,
+      "precision@5": 0.27999999999999997,
+      "mrr": 0.5208333333333333,
+      "first_hit_chunk_type": {
+        "text": 15,
+        "table": 3,
+        "miss": 2
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "net_sales_q3",
+      "split": "dev",
+      "question": "What were Apple's total net sales in the third quarter of 2022?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.032
+        ],
+        [
+          "text",
+          18,
+          0.03
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ],
+        [
+          "text",
+          10,
+          0.029
+        ],
+        [
+          "text",
+          19,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "net_sales_9m",
+      "split": "dev",
+      "question": "What were total net sales for the nine months ended June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          18,
+          0.031
+        ],
+        [
+          "table",
+          21,
+          0.031
+        ],
+        [
+          "table",
+          19,
+          0.031
+        ],
+        [
+          "table",
+          10,
+          0.031
+        ],
+        [
+          "table",
+          21,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "iphone_sales_q3",
+      "split": "dev",
+      "question": "How much iPhone net sales did Apple report in Q3 2022?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          10,
+          0.031
+        ],
+        [
+          "text",
+          18,
+          0.031
+        ],
+        [
+          "table",
+          18,
+          0.03
+        ],
+        [
+          "table",
+          10,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "net_income_q3",
+      "split": "dev",
+      "question": "What was Apple's net income for the quarter ended June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.8,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          5,
+          0.03
+        ],
+        [
+          "table",
+          5,
+          0.03
+        ],
+        [
+          "table",
+          5,
+          0.028
+        ],
+        [
+          "text",
+          21,
+          0.028
+        ],
+        [
+          "table",
+          5,
+          0.027
+        ]
+      ]
+    },
+    {
+      "id": "diluted_eps_9m",
+      "split": "dev",
+      "question": "What were diluted earnings per share for the nine months ended June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          9,
+          0.033
+        ],
+        [
+          "table",
+          9,
+          0.032
+        ],
+        [
+          "text",
+          9,
+          0.031
+        ],
+        [
+          "table",
+          9,
+          0.031
+        ],
+        [
+          "table",
+          4,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "shares_outstanding",
+      "split": "dev",
+      "question": "How many shares of common stock were issued and outstanding as of July 15, 2022?",
+      "rank_of_first_hit": 5,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.2,
+      "retrieved": [
+        [
+          "table",
+          6,
+          0.033
+        ],
+        [
+          "table",
+          7,
+          0.032
+        ],
+        [
+          "text",
+          23,
+          0.03
+        ],
+        [
+          "text",
+          14,
+          0.029
+        ],
+        [
+          "text",
+          2,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "cash_equivalents",
+      "split": "dev",
+      "question": "What was the balance of cash and cash equivalents on the balance sheet?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          6,
+          0.033
+        ],
+        [
+          "table",
+          8,
+          0.031
+        ],
+        [
+          "table",
+          8,
+          0.03
+        ],
+        [
+          "table",
+          8,
+          0.03
+        ],
+        [
+          "table",
+          8,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "noncurrent_term_debt",
+      "split": "dev",
+      "question": "What was the non-current term debt on the balance sheet at June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          6,
+          0.033
+        ],
+        [
+          "table",
+          6,
+          0.029
+        ],
+        [
+          "table",
+          12,
+          0.029
+        ],
+        [
+          "table",
+          6,
+          0.029
+        ],
+        [
+          "table",
+          6,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "rnd_q3",
+      "split": "dev",
+      "question": "How much did Apple spend on research and development in the third quarter?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "text",
+          17,
+          0.031
+        ],
+        [
+          "text",
+          4,
+          0.029
+        ],
+        [
+          "text",
+          19,
+          0.027
+        ],
+        [
+          "table",
+          3,
+          0.027
+        ],
+        [
+          "text",
+          21,
+          0.027
+        ]
+      ]
+    },
+    {
+      "id": "services_gross_margin",
+      "split": "dev",
+      "question": "What was the services gross margin for the third quarter of 2022?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "text",
+          20,
+          0.033
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "buyback_q3",
+      "split": "dev",
+      "question": "How much common stock did the Company repurchase during the third quarter?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "text",
+          14,
+          0.033
+        ],
+        [
+          "text",
+          23,
+          0.032
+        ],
+        [
+          "text",
+          23,
+          0.029
+        ],
+        [
+          "text",
+          17,
+          0.028
+        ],
+        [
+          "text",
+          14,
+          0.026
+        ]
+      ]
+    },
+    {
+      "id": "shares_repurchased_9m",
+      "split": "dev",
+      "question": "How many shares did Apple repurchase in the first nine months of 2022 and for how much?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          14,
+          0.028
+        ],
+        [
+          "text",
+          4,
+          0.026
+        ],
+        [
+          "table",
+          6,
+          0.026
+        ],
+        [
+          "text",
+          23,
+          0.026
+        ],
+        [
+          "table",
+          4,
+          0.024
+        ]
+      ]
+    },
+    {
+      "id": "quarterly_dividend",
+      "split": "dev",
+      "question": "What is the quarterly cash dividend per share?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          22,
+          0.033
+        ],
+        [
+          "text",
+          7,
+          0.032
+        ],
+        [
+          "text",
+          7,
+          0.031
+        ],
+        [
+          "table",
+          7,
+          0.031
+        ],
+        [
+          "table",
+          7,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "net_sales_growth_driver",
+      "split": "dev",
+      "question": "What drove the increase in total net sales during the third quarter of 2022?",
+      "rank_of_first_hit": 5,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.2,
+      "retrieved": [
+        [
+          "text",
+          19,
+          0.033
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          18,
+          0.029
+        ],
+        [
+          "text",
+          18,
+          0.029
+        ],
+        [
+          "text",
+          17,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "operating_income_q3",
+      "split": "heldout",
+      "question": "What was Apple's operating income in the third quarter of 2022?",
+      "rank_of_first_hit": null,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 0.0,
+      "precision@5": 0.0,
+      "rr": 0.0,
+      "retrieved": [
+        [
+          "text",
+          21,
+          0.032
+        ],
+        [
+          "text",
+          8,
+          0.026
+        ],
+        [
+          "text",
+          16,
+          0.026
+        ],
+        [
+          "text",
+          17,
+          0.026
+        ],
+        [
+          "text",
+          19,
+          0.025
+        ]
+      ]
+    },
+    {
+      "id": "total_assets",
+      "split": "heldout",
+      "question": "What were Apple's total assets as of June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          6,
+          0.03
+        ],
+        [
+          "table",
+          6,
+          0.029
+        ],
+        [
+          "table",
+          6,
+          0.028
+        ],
+        [
+          "text",
+          8,
+          0.028
+        ],
+        [
+          "table",
+          8,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "total_liabilities",
+      "split": "heldout",
+      "question": "What were total liabilities on the balance sheet?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          6,
+          0.033
+        ],
+        [
+          "table",
+          6,
+          0.032
+        ],
+        [
+          "table",
+          6,
+          0.032
+        ],
+        [
+          "table",
+          6,
+          0.031
+        ],
+        [
+          "text",
+          6,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "sga_q3",
+      "split": "heldout",
+      "question": "How much did the company spend on selling, general and administrative in Q3?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "text",
+          21,
+          0.032
+        ],
+        [
+          "table",
+          21,
+          0.032
+        ],
+        [
+          "table",
+          4,
+          0.031
+        ],
+        [
+          "text",
+          4,
+          0.03
+        ],
+        [
+          "text",
+          21,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "tax_provision_q3",
+      "split": "heldout",
+      "question": "What was the provision for income taxes for the three months ended June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          21,
+          0.033
+        ],
+        [
+          "table",
+          21,
+          0.032
+        ],
+        [
+          "table",
+          4,
+          0.031
+        ],
+        [
+          "table",
+          21,
+          0.031
+        ],
+        [
+          "table",
+          16,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "operating_cash_flow_9m",
+      "split": "heldout",
+      "question": "How much cash was generated by operating activities in the first nine months of 2022?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "table",
+          8,
+          0.032
+        ],
+        [
+          "text",
+          21,
+          0.031
+        ],
+        [
+          "table",
+          8,
+          0.031
+        ],
+        [
+          "table",
+          8,
+          0.029
+        ],
+        [
+          "table",
+          8,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "commercial_paper",
+      "split": "heldout",
+      "question": "How much commercial paper was outstanding?",
+      "rank_of_first_hit": null,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 0.0,
+      "precision@5": 0.0,
+      "rr": 0.0,
+      "retrieved": [
+        [
+          "text",
+          14,
+          0.033
+        ],
+        [
+          "text",
+          14,
+          0.032
+        ],
+        [
+          "table",
+          14,
+          0.032
+        ],
+        [
+          "table",
+          14,
+          0.031
+        ],
+        [
+          "text",
+          14,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "mac_sales_q3",
+      "split": "heldout",
+      "question": "What were Mac net sales in the third quarter of 2022?",
+      "rank_of_first_hit": 5,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.2,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          18,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          17,
+          0.03
+        ],
+        [
+          "text",
+          10,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "inventories",
+      "split": "heldout",
+      "question": "What was the inventories balance at June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          6,
+          0.032
+        ],
+        [
+          "table",
+          8,
+          0.03
+        ],
+        [
+          "table",
+          6,
+          0.03
+        ],
+        [
+          "table",
+          6,
+          0.028
+        ],
+        [
+          "table",
+          6,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "gross_margin_total_q3",
+      "split": "heldout",
+      "question": "What was the total gross margin in the third quarter of 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          20,
+          0.033
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "depreciation_9m",
+      "split": "heldout",
+      "question": "How much depreciation and amortization was recorded in the nine months ended June 25, 2022?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "table",
+          13,
+          0.033
+        ],
+        [
+          "text",
+          10,
+          0.031
+        ],
+        [
+          "table",
+          13,
+          0.03
+        ],
+        [
+          "table",
+          8,
+          0.029
+        ],
+        [
+          "table",
+          21,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "effective_tax_rate_trend",
+      "split": "heldout",
+      "question": "How did the effective tax rate for the third quarter of 2022 compare with the prior year?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          22,
+          0.033
+        ],
+        [
+          "text",
+          21,
+          0.032
+        ],
+        [
+          "text",
+          21,
+          0.032
+        ],
+        [
+          "table",
+          21,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "ipad_sales_q3",
+      "split": "extra",
+      "question": "What were iPad net sales in Q3 2022?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          10,
+          0.031
+        ],
+        [
+          "table",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          18,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "wearables_sales_q3",
+      "split": "extra",
+      "question": "How much revenue did Wearables, Home and Accessories generate in the third quarter?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          10,
+          0.032
+        ],
+        [
+          "text",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "table",
+          18,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "services_revenue_q3",
+      "split": "extra",
+      "question": "What were Services net sales for Q3 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "table",
+          10,
+          0.032
+        ],
+        [
+          "text",
+          10,
+          0.031
+        ],
+        [
+          "table",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          10,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "americas_sales_q3",
+      "split": "extra",
+      "question": "What were net sales in the Americas segment for Q3 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          19,
+          0.033
+        ],
+        [
+          "table",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          16,
+          0.03
+        ],
+        [
+          "table",
+          19,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "europe_sales_q3",
+      "split": "extra",
+      "question": "What were Europe segment net sales in the third quarter of 2022?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "table",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "greater_china_sales_q3",
+      "split": "extra",
+      "question": "How much net sales did Apple report in Greater China during Q3 2022?",
+      "rank_of_first_hit": null,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 0.0,
+      "precision@5": 0.0,
+      "rr": 0.0,
+      "retrieved": [
+        [
+          "text",
+          19,
+          0.033
+        ],
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ],
+        [
+          "text",
+          10,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "japan_sales_q3",
+      "split": "extra",
+      "question": "What were Japan segment net sales in the third quarter of 2022?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "table",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "rest_asia_pacific_sales_q3",
+      "split": "extra",
+      "question": "How much revenue did Apple earn in Rest of Asia Pacific in Q3 2022?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "text",
+          20,
+          0.033
+        ],
+        [
+          "text",
+          10,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ],
+        [
+          "text",
+          16,
+          0.029
+        ],
+        [
+          "text",
+          19,
+          0.028
+        ]
+      ]
+    },
+    {
+      "id": "americas_op_income_q3",
+      "split": "extra",
+      "question": "What was the Americas segment operating income for Q3 2022?",
+      "rank_of_first_hit": 4,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 1.0,
+      "precision@5": 0.4,
+      "rr": 0.25,
+      "retrieved": [
+        [
+          "table",
+          16,
+          0.033
+        ],
+        [
+          "table",
+          16,
+          0.032
+        ],
+        [
+          "text",
+          16,
+          0.031
+        ],
+        [
+          "text",
+          16,
+          0.031
+        ],
+        [
+          "table",
+          16,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "europe_op_income_q3",
+      "split": "extra",
+      "question": "How much operating income did Europe segment generate in the third quarter?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "table",
+          16,
+          0.032
+        ],
+        [
+          "text",
+          16,
+          0.032
+        ],
+        [
+          "table",
+          16,
+          0.031
+        ],
+        [
+          "text",
+          16,
+          0.03
+        ],
+        [
+          "table",
+          16,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "cost_of_sales_q3_extra",
+      "split": "extra",
+      "question": "What was the cost of sales in Q3 2022?",
+      "rank_of_first_hit": null,
+      "hit@1": 0.0,
+      "hit@3": 0.0,
+      "hit@5": 0.0,
+      "precision@5": 0.0,
+      "rr": 0.0,
+      "retrieved": [
+        [
+          "text",
+          10,
+          0.032
+        ],
+        [
+          "text",
+          10,
+          0.028
+        ],
+        [
+          "text",
+          18,
+          0.028
+        ],
+        [
+          "text",
+          21,
+          0.028
+        ],
+        [
+          "text",
+          15,
+          0.027
+        ]
+      ]
+    },
+    {
+      "id": "tax_provision_9m",
+      "split": "extra",
+      "question": "What was the provision for income taxes for the nine months ended June 25, 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.6,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          21,
+          0.033
+        ],
+        [
+          "table",
+          21,
+          0.032
+        ],
+        [
+          "table",
+          4,
+          0.031
+        ],
+        [
+          "table",
+          21,
+          0.03
+        ],
+        [
+          "table",
+          16,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "iphone_growth_driver",
+      "split": "extra",
+      "question": "What drove the increase in iPhone net sales during Q3 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          19,
+          0.032
+        ],
+        [
+          "text",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.03
+        ],
+        [
+          "text",
+          18,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "mac_decline_reason",
+      "split": "extra",
+      "question": "Why did Mac net sales decrease in the third quarter of 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          18,
+          0.032
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          19,
+          0.031
+        ],
+        [
+          "text",
+          17,
+          0.029
+        ]
+      ]
+    },
+    {
+      "id": "ipad_decline_q3",
+      "split": "extra",
+      "question": "What was the primary reason for iPad net sales decline in Q3 2022?",
+      "rank_of_first_hit": 1,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 1.0,
+      "retrieved": [
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "text",
+          18,
+          0.033
+        ],
+        [
+          "table",
+          18,
+          0.031
+        ],
+        [
+          "text",
+          10,
+          0.03
+        ],
+        [
+          "text",
+          18,
+          0.03
+        ]
+      ]
+    },
+    {
+      "id": "products_margin_decline",
+      "split": "extra",
+      "question": "Did Products gross margin increase or decrease during Q3 2022 compared to Q3 2021?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "text",
+          20,
+          0.033
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "total_gross_margin_q3",
+      "split": "extra",
+      "question": "What was the total gross margin percentage in Q3 2022?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "table",
+          20,
+          0.033
+        ],
+        [
+          "table",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "services_margin_percentage_q3",
+      "split": "extra",
+      "question": "What was the gross margin percentage for Services in the third quarter of 2022?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "text",
+          20,
+          0.033
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "table",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ],
+        [
+          "table",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "products_margin_percentage_q3",
+      "split": "extra",
+      "question": "What was the gross margin percentage for Products in Q3 2022?",
+      "rank_of_first_hit": 2,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.5,
+      "retrieved": [
+        [
+          "table",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "table",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ]
+      ]
+    },
+    {
+      "id": "nine_month_gross_margin",
+      "split": "extra",
+      "question": "What was the total gross margin percentage for the nine-month period?",
+      "rank_of_first_hit": 3,
+      "hit@1": 0.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "precision@5": 0.2,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        [
+          "table",
+          20,
+          0.033
+        ],
+        [
+          "table",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.032
+        ],
+        [
+          "text",
+          20,
+          0.031
+        ],
+        [
+          "table",
+          21,
+          0.03
+        ]
+      ]
+    }
+  ]
+}
